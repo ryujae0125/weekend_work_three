@@ -1,5 +1,5 @@
-# In this exercise, we've already implemented the class, and you have to write the 
-# driver code. 
+# In this exercise, we've already implemented the class, and you have to write the
+# driver code.
 # This class represents a hotel reservation.
 
 class HotelReservation
@@ -24,11 +24,41 @@ class HotelReservation
     @amenities << amenity
   end
 end
-
-
 # Write your own driver code below! Make sure your code tests the following:
 # The ability to change a room number even after a reservation has already been created
 # The add_a_fridge method
 # The add_a_crib method
 # The add_a_custom_amenity method
+customer = HotelReservation.new ({customer_name: "Jae", date: "Aug 1st", room_number: 100, amenities: nil})
 
+customer.add_a_fridge
+result = customer.amenities.first
+puts "My method returned:"
+puts result
+puts
+
+if result == "fridge"
+  puts "PASS!"
+else
+  puts "F"
+end
+
+customer.add_a_crib
+result = customer.amenities.last
+puts "My method returned:"
+puts result
+if result == "crib"
+  puts "PASS!"
+else
+  puts "F"
+end
+
+customer.add_a_custom_amenity("toothpaste")
+result = customer.amenities.last
+puts "My method returned:"
+puts result
+if result == "toothpaste"
+  puts "PASS!"
+else
+  puts "F"
+end
